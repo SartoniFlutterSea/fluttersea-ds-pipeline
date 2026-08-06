@@ -1,15 +1,7 @@
-# Pubblica su GitHub Pages lo Storybook di documentazione.
+# Compila il sito di documentazione dagli artefatti estratti e lo pubblica.
 #
-# La repo è PUBBLICA, quindi il sito sarà pubblico: nessun piano Enterprise
-# richiesto e nessun posto GitHub necessario per chi lo consulta. Se un
-# giorno la repo diventasse privata, servirebbe Enterprise Cloud per tenere
-# il sito accessibile ai soli membri dell'organizzazione.
-#
-# Da fare UNA VOLTA prima del primo run:
-#   Settings → Pages → Source: GitHub Actions
-#
-# Le storie non sono in repo: si rigenerano qui dai metadata.json, che
-# restano l'unica fonte.
+# Le pagine non stanno in repo: si rigenerano qui da data/contracts/, che
+# resta l'unica fonte.
 
 name: Storybook
 
@@ -17,7 +9,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'components/**/docs/metadata.json'
+      - 'data/contracts/**'
       - 'storybook/**'
       - '.storybook/**'
       - 'scripts/build-stories.mjs'
@@ -25,7 +17,7 @@ on:
       - '.github/workflows/storybook.yml'
   pull_request:
     paths:
-      - 'components/**/docs/metadata.json'
+      - 'data/contracts/**'
       - 'storybook/**'
       - '.storybook/**'
   workflow_dispatch:
@@ -41,16 +33,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
 
       - run: npm ci
-
-      # Rigenera le storie dai metadata.json e compila il sito statico.
       - run: npm run build-storybook
 
       - name: Prepara per Pages
@@ -59,9 +48,9 @@ jobs:
         with:
           path: storybook-static
 
-      # Sulle PR il sito non si pubblica: resta scaricabile dal run, così si
-      # può verificare che compili prima del merge.
-      - name: Artefatto della PR
+      # Sulle proposte il sito non si pubblica: resta scaricabile dal run,
+      # cosi' si verifica che compili prima di unire.
+      - name: Artefatto della proposta
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
@@ -82,8 +71,3 @@ jobs:
     steps:
       - id: deploy
         uses: actions/deploy-pages@v4
-
-# NOTA: questo file vive in docs/ e non in .github/workflows/ perche' il token
-# usato per il primo push non aveva lo scope `workflow`. Per attivarlo:
-#   gh auth refresh -h github.com -s workflow
-#   git mv docs/storybook.yml.pending .github/workflows/storybook.yml
