@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, TOKEN } from './_env.mjs';
+import { assertNodeMatchesSlug } from './_guard.mjs';
 
 const OUT = `${ROOT}/data/contracts`;
 
@@ -50,6 +51,7 @@ const varName = id => vmeta.variables[id]?.name ?? null;
 /* ── il component set ─────────────────────────────────────────────────────── */
 const nodes = await api(`files/${FILE}/nodes?ids=${nodeId}`);
 const doc = Object.values(nodes.nodes)[0].document;
+assertNodeMatchesSlug(slug, doc.name, { ds, nodeId, force: process.argv.includes('--force') });
 const variants = doc.children ?? [];
 
 /* ── 1. Assi: dalla property table, non dalla prosa ──────────────────────── */

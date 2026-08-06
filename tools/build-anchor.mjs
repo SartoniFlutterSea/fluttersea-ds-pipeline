@@ -15,6 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, TOKEN } from './_env.mjs';
+import { assertNodeMatchesSlug } from './_guard.mjs';
 
 const OUT = `${ROOT}/data/contracts`;
 
@@ -53,6 +54,7 @@ const api = async u => {
 const nodes = await api(`files/${FILE}/nodes?ids=${nodeId}`);
 const entry = Object.values(nodes.nodes)[0];
 const doc = entry.document;
+assertNodeMatchesSlug(slug, doc.name, { ds, nodeId, force: process.argv.includes('--force') });
 
 /* ── i frame di documentazione esistono? (PA-19) ─────────────────────────── */
 const DOC_RE = /purpose|usage|behavior|behaviour|anatomy|do\s*&|don'?t|guideline|spec|documentation|linee guida/i;
