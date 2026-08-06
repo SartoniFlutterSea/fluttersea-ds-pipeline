@@ -1,0 +1,25 @@
+{
+  "name": "fluttersea-ds-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Estrazione del Design System Cross-App da Figma verso JSON strutturati, e sito di documentazione generato dagli artefatti.",
+  "type": "module",
+  "scripts": {
+    "stories": "node scripts/build-stories.mjs",
+    "storybook": "npm run stories && storybook dev -p 6006",
+    "build-storybook": "npm run stories && storybook build",
+    "extract:tokens": "node tools/resolve-tokens.mjs sisal light",
+    "scan": "node tools/scan-files.mjs"
+  },
+  "devDependencies": {
+    "@storybook/addon-docs": "^10.5.6",
+    "@storybook/react-vite": "^10.5.6",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.1.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "storybook": "^10.5.6",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1"
+  }
+}

@@ -1,0 +1,575 @@
+{
+  "id": "ds.button-icon",
+  "fileKey": "QWM2EhgZmv2KKcqI0315fx",
+  "fileName": "📱 Design System Cross App",
+  "ds": "b2c",
+  "nodes": {
+    "android": "5639:2256",
+    "ios": "5639:2256",
+    "ios-liquid-glass": "8354:2608"
+  },
+  "nodeType": "COMPONENT_SET",
+  "nodeName": "Icon Button",
+  "variantCount": 90,
+  "parts": {},
+  "page": {
+    "id": "5469:6297",
+    "name": "Button  🟢",
+    "label": "Button",
+    "marker": "🟢",
+    "status": "done"
+  },
+  "documentation": [
+    {
+      "page": "About",
+      "frames": [
+        {
+          "id": "6738:218",
+          "name": "How to read documentation",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Colors",
+      "frames": [
+        {
+          "id": "I5143:2604;5656:18677",
+          "name": "Documentation Alert",
+          "type": "INSTANCE"
+        }
+      ]
+    },
+    {
+      "page": "Tokens",
+      "frames": [
+        {
+          "id": "6795:8639",
+          "name": "Variables Documentation - mode",
+          "type": "FRAME"
+        },
+        {
+          "id": "6795:18930",
+          "name": "Variables Documentation - primitives",
+          "type": "FRAME"
+        },
+        {
+          "id": "6795:26383",
+          "name": "Variables Documentation - brand",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Accordion 🟢",
+      "frames": [
+        {
+          "id": "8743:95275",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:95393",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Alert 🟢",
+      "frames": [
+        {
+          "id": "9955:3522",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "9955:3636",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Avatar ",
+      "frames": [
+        {
+          "id": "8743:95657",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:95767",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Back to top navigation 🟢",
+      "frames": [
+        {
+          "id": "8743:95840",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:95950",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Backdrop 🟢",
+      "frames": [
+        {
+          "id": "8743:96023",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:96133",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Badge 🟢",
+      "frames": [
+        {
+          "id": "8743:96206",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:96316",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:96389",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:96499",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Banner 🟢",
+      "frames": [
+        {
+          "id": "8743:97121",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:97231",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Bottom Sheet 🟢",
+      "frames": [
+        {
+          "id": "10371:13263",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:13388",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Button  🟢",
+      "frames": [
+        {
+          "id": "8743:98036",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8743:98146",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "10057:1314",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10057:1356",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:18429",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:18677",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:20945",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:21175",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Card 🟢",
+      "frames": [
+        {
+          "id": "10841:10188",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10841:10306",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "    Card/Promo e Bonus 🟢",
+      "frames": [
+        {
+          "id": "10876:18181",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10876:18299",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "    Card/Detail 🟢",
+      "frames": [
+        {
+          "id": "10880:18510",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10880:18628",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Chip 🟢",
+      "frames": [
+        {
+          "id": "10371:12543",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:12655",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Dropdown 🟢",
+      "frames": [
+        {
+          "id": "10371:12039",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:12151",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Feedback 🟢",
+      "frames": [
+        {
+          "id": "9956:901",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "9956:975",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Filters 🟢",
+      "frames": [
+        {
+          "id": "10383:7267",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10383:7376",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "    Hero/Homepage 🟢",
+      "frames": [
+        {
+          "id": "10891:46110",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10891:46228",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "    Hero/Detail 🟢",
+      "frames": [
+        {
+          "id": "10907:46334",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10907:46452",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "List 🟢",
+      "frames": [
+        {
+          "id": "10907:46528",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10907:46782",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10907:46646",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "10907:46719",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Nav Bar 🟢",
+      "frames": [
+        {
+          "id": "9954:2761",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "9954:2832",
+          "name": "Behavior",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Notification 🟢",
+      "frames": [
+        {
+          "id": "10371:3266",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:3375",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Page Navigation 🟢",
+      "frames": [
+        {
+          "id": "9955:669",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "9955:739",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:15658",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10371:15844",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "10408:7652",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10408:8229",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Tab 🟢",
+      "frames": [
+        {
+          "id": "10408:2009",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "10408:2241",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Toggle - LG 🟢",
+      "frames": [
+        {
+          "id": "9911:3817",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "9959:843",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "➡️ TEMPLATE DOCUMENTAZIONE",
+      "frames": [
+        {
+          "id": "8562:30039",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "8562:30093",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8562:30165",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "8562:30205",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8562:30325",
+          "name": "Behavior",
+          "type": "FRAME"
+        },
+        {
+          "id": "8562:30443",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        },
+        {
+          "id": "10971:3728",
+          "name": "Purpose & Usage",
+          "type": "FRAME"
+        }
+      ]
+    },
+    {
+      "page": "Local Components (⚠️ do not edit)",
+      "frames": [
+        {
+          "id": "5445:4425",
+          "name": "Documentation Alert",
+          "type": "COMPONENT_SET"
+        },
+        {
+          "id": "5104:10323",
+          "name": "Purpose=Component",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "5527:21288",
+          "name": "Purpose=How to use",
+          "type": "COMPONENT"
+        },
+        {
+          "id": "6973:1183",
+          "name": "Documentation Alert",
+          "type": "INSTANCE"
+        }
+      ]
+    },
+    {
+      "page": "Onboarding",
+      "frames": [
+        {
+          "id": "2802:48424",
+          "name": "identificare componenti delle varie librerie di prodotto e inserirle in DS, le quali manterranno solo dei componenti specifici integrare e modificare eventuali flussi utente gestire multibrand e multilanguage rifattorizzare le app esistenti con l’utilizzo del DS App Global",
+          "type": "TEXT"
+        },
+        {
+          "id": "2802:48438",
+          "name": "02 Getting started // Components usage",
+          "type": "FRAME"
+        }
+      ]
+    }
+  ],
+  "lastModified": "2026-08-06T09:49:15Z"
+}

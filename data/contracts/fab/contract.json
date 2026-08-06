@@ -1,0 +1,53 @@
+{
+  "_coverage": {
+    "note": "I token sono misurati sulla sola size di riferimento: le superfici non variano con la size.",
+    "sizingMeasuredOn": "0/0 size",
+    "tokensMeasuredOn": "0 combinazioni su 0",
+    "variants": 6
+  },
+  "booleans": [],
+  "id": "ds.fab",
+  "name": "FAB",
+  "props": [
+    {
+      "_source": {
+        "default": "figma-first-variant",
+        "order": "figma-alphabetical",
+        "values": "figma"
+      },
+      "default": "android",
+      "figmaProperty": "os",
+      "name": "os",
+      "values": [
+        "android",
+        "ios",
+        "iosLiquidGlass"
+      ]
+    },
+    {
+      "_source": {
+        "default": "figma-first-variant",
+        "order": "figma-alphabetical",
+        "values": "figma"
+      },
+      "default": "yes",
+      "figmaProperty": "Label",
+      "name": "label",
+      "values": [
+        "no",
+        "yes"
+      ]
+    }
+  ],
+  "sizing": {},
+  "source": {
+    "ds": "b2c",
+    "fileKey": "QWM2EhgZmv2KKcqI0315fx",
+    "fileName": "📱 Design System Cross App",
+    "nodeId": "9440-489",
+    "nodeType": "COMPONENT_SET"
+  },
+  "swaps": [],
+  "texts": [],
+  "tokens": {}
+}

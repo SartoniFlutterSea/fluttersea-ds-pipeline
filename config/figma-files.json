@@ -1,0 +1,16 @@
+{
+  "_nota": "I due file condividono gli id dei nodi perché il B2B è stato duplicato dal B2C. Lo stesso id restituisce componenti DIVERSI nei due file (Button: 90 varianti in b2c, 120 in b2b). Specificare sempre il ds, mai fidarsi del solo nodeId.",
+  "default": "b2c",
+  "files": {
+    "b2c": {
+      "fileKey": "QWM2EhgZmv2KKcqI0315fx",
+      "name": "📱 Design System Cross App",
+      "platforms": ["android", "ios", "ios-liquid-glass"]
+    },
+    "b2b": {
+      "fileKey": "AFsC1fNp7mYe6Qm4l2Cfin",
+      "name": "🏗️ DS B2B",
+      "platforms": ["web"]
+    }
+  }
+}

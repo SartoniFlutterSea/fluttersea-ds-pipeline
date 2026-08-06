@@ -1,0 +1,28 @@
+{
+  "_note": "Mappa esplicita marcatore → stato. I due DS usano convenzioni diverse: il B2C marca il completamento (🟢), il B2B marca i problemi (🔴 ❌ ❓). Non si deduce dal simbolo: si dichiara qui.",
+
+  "b2c": {
+    "🟢": "done",
+    "❖": "_section",
+    "➡️": "_template",
+    "⚠️": "_do-not-edit"
+  },
+
+  "b2b": {
+    "🔴": "in-progress",
+    "❌": "absent",
+    "❓": "undecided",
+    "❖": "_section",
+    "⚠️": "_do-not-publish"
+  },
+
+  "_meaning": {
+    "done": "il design è considerato completo dal team",
+    "in-progress": "in lavorazione",
+    "absent": "il componente non esiste ancora",
+    "undecided": "esistenza o forma da decidere",
+    "_section": "pagina-sezione, non un componente: da escludere dal catalogo",
+    "_template": "template di documentazione, non un componente",
+    "_do-not-edit": "componenti locali, non pubblicare"
+  }
+}

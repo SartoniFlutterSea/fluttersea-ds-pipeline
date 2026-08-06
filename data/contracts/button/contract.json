@@ -1,0 +1,417 @@
+{
+  "_coverage": {
+    "note": "I token sono misurati sulla sola size di riferimento: le superfici non variano con la size.",
+    "sizingMeasuredOn": "2/2 size",
+    "tokensMeasuredOn": "45 combinazioni su 45",
+    "variants": 90
+  },
+  "booleans": [
+    {
+      "default": false,
+      "figmaProperty": "Show left icon",
+      "name": "showLeftIcon"
+    },
+    {
+      "default": false,
+      "figmaProperty": "Show right icon",
+      "name": "showRightIcon"
+    }
+  ],
+  "id": "ds.button",
+  "name": "Button",
+  "props": [
+    {
+      "_source": {
+        "default": "figma-first-variant",
+        "order": "figma-alphabetical",
+        "values": "figma"
+      },
+      "default": "Neutral",
+      "figmaProperty": "Appearance",
+      "name": "appearance",
+      "values": [
+        "Accent",
+        "Brand",
+        "Danger",
+        "Inverse",
+        "Neutral"
+      ]
+    },
+    {
+      "_source": {
+        "default": "figma-first-variant",
+        "order": "figma-alphabetical",
+        "values": "figma"
+      },
+      "default": "Primary",
+      "figmaProperty": "Hierarchy",
+      "name": "hierarchy",
+      "values": [
+        "Ghost",
+        "Primary",
+        "Secondary"
+      ]
+    },
+    {
+      "_source": {
+        "default": "figma-first-variant",
+        "order": "figma-alphabetical",
+        "values": "figma"
+      },
+      "default": "Default",
+      "figmaProperty": "State",
+      "name": "state",
+      "values": [
+        "Default",
+        "Disabled",
+        "Pressed"
+      ]
+    },
+    {
+      "_source": {
+        "default": "figma-first-variant",
+        "order": "figma-alphabetical",
+        "values": "figma"
+      },
+      "default": "md",
+      "figmaProperty": "Size",
+      "name": "size",
+      "values": [
+        "md",
+        "sm"
+      ]
+    }
+  ],
+  "sizing": {
+    "md": {
+      "_measured": {
+        "height": 44,
+        "layout": "HORIZONTAL"
+      },
+      "gap": "c/button/size/md/gap",
+      "paddingHorizontal": "c/button/size/md/padding/horizontal",
+      "paddingVertical": "c/button/size/md/padding/vertical"
+    },
+    "sm": {
+      "_measured": {
+        "height": 32,
+        "layout": "HORIZONTAL"
+      },
+      "gap": "c/button/size/sm/gap",
+      "paddingHorizontal": "c/button/size/sm/padding/horizontal",
+      "paddingVertical": "c/button/size/sm/padding/vertical"
+    }
+  },
+  "source": {
+    "ds": "b2c",
+    "fileKey": "QWM2EhgZmv2KKcqI0315fx",
+    "fileName": "📱 Design System Cross App",
+    "nodeId": "5473-10855",
+    "nodeType": "COMPONENT_SET"
+  },
+  "swaps": [
+    {
+      "figmaProperty": "right-icon",
+      "name": "rightIcon",
+      "type": "INSTANCE_SWAP"
+    },
+    {
+      "figmaProperty": "left-icon",
+      "name": "leftIcon",
+      "type": "INSTANCE_SWAP"
+    }
+  ],
+  "texts": [
+    {
+      "default": "Button",
+      "figmaProperty": "Primary Button Text",
+      "name": "primaryButtonText"
+    },
+    {
+      "default": "Button",
+      "figmaProperty": "Secondary Button Text",
+      "name": "secondaryButtonText"
+    },
+    {
+      "default": "Button",
+      "figmaProperty": "Ghost Button Text",
+      "name": "ghostButtonText"
+    }
+  ],
+  "tokens": {
+    "Accent/Ghost": {
+      "Default": {
+        "icon": "c/button/color/accent/ghost/icon/default",
+        "text": "c/button/color/accent/ghost/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/accent/ghost/bg/disabled",
+        "border": "c/button/color/accent/ghost/border/disabled",
+        "icon": "c/button/color/accent/ghost/icon/disabled",
+        "text": "c/button/color/accent/ghost/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/accent/ghost/bg/pressed",
+        "icon": "c/button/color/accent/ghost/icon/pressed",
+        "text": "c/button/color/accent/ghost/text/pressed"
+      }
+    },
+    "Accent/Primary": {
+      "Default": {
+        "bg": "c/button/color/accent/primary/bg/default",
+        "icon": "c/button/color/accent/primary/icon/default",
+        "text": "c/button/color/accent/primary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/accent/primary/bg/disabled",
+        "border": "c/button/color/accent/primary/border/disabled",
+        "icon": "c/button/color/accent/primary/icon/disabled",
+        "text": "c/button/color/accent/primary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/accent/primary/bg/pressed",
+        "icon": "c/button/color/accent/primary/icon/pressed",
+        "text": "c/button/color/accent/primary/text/pressed"
+      }
+    },
+    "Accent/Secondary": {
+      "Default": {
+        "bg": "c/button/color/accent/secondary/bg/default",
+        "border": "c/button/color/accent/secondary/border/default",
+        "icon": "c/button/color/accent/secondary/icon/default",
+        "text": "c/button/color/accent/secondary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/accent/secondary/bg/disabled",
+        "border": "c/button/color/accent/secondary/border/disabled",
+        "icon": "c/button/color/accent/secondary/icon/disabled",
+        "text": "c/button/color/accent/secondary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/accent/secondary/bg/pressed",
+        "border": "c/button/color/accent/secondary/border/pressed",
+        "icon": "c/button/color/accent/secondary/icon/pressed",
+        "text": "c/button/color/accent/secondary/text/pressed"
+      }
+    },
+    "Brand/Ghost": {
+      "Default": {
+        "icon": "c/button/color/brand/ghost/icon/default",
+        "text": "c/button/color/brand/ghost/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/brand/ghost/bg/disabled",
+        "border": "c/button/color/brand/ghost/border/disabled",
+        "icon": "c/button/color/brand/ghost/icon/disabled",
+        "text": "c/button/color/brand/ghost/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/brand/ghost/bg/pressed",
+        "icon": "c/button/color/brand/ghost/icon/pressed",
+        "text": "c/button/color/brand/ghost/text/pressed"
+      }
+    },
+    "Brand/Primary": {
+      "Default": {
+        "bg": "c/button/color/brand/primary/bg/default",
+        "icon": "c/button/color/brand/primary/icon/default",
+        "text": "c/button/color/brand/primary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/brand/primary/bg/disabled",
+        "border": "c/button/color/brand/primary/border/disabled",
+        "icon": "c/button/color/brand/primary/icon/disabled",
+        "text": "c/button/color/brand/primary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/brand/primary/bg/pressed",
+        "icon": "c/button/color/brand/primary/icon/pressed",
+        "text": "c/button/color/brand/primary/text/pressed"
+      }
+    },
+    "Brand/Secondary": {
+      "Default": {
+        "bg": "c/button/color/brand/secondary/bg/default",
+        "border": "c/button/color/brand/secondary/border/default",
+        "icon": "c/button/color/brand/secondary/icon/default",
+        "text": "c/button/color/brand/secondary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/brand/secondary/bg/disabled",
+        "border": "c/button/color/brand/secondary/border/disabled",
+        "icon": "c/button/color/brand/secondary/icon/disabled",
+        "text": "c/button/color/brand/secondary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/brand/secondary/bg/pressed",
+        "border": "c/button/color/brand/secondary/border/pressed",
+        "icon": "c/button/color/brand/secondary/icon/pressed",
+        "text": "c/button/color/brand/secondary/text/pressed"
+      }
+    },
+    "Danger/Ghost": {
+      "Default": {
+        "icon": "c/button/color/danger/ghost/icon/default",
+        "text": "c/button/color/danger/ghost/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/danger/ghost/bg/disabled",
+        "border": "c/button/color/danger/ghost/border/disabled",
+        "icon": "c/button/color/danger/ghost/icon/disabled",
+        "text": "c/button/color/danger/ghost/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/danger/ghost/bg/pressed",
+        "icon": "c/button/color/danger/ghost/icon/pressed",
+        "text": "c/button/color/danger/ghost/text/pressed"
+      }
+    },
+    "Danger/Primary": {
+      "Default": {
+        "bg": "c/button/color/danger/primary/bg/default",
+        "icon": "c/button/color/danger/primary/icon/default",
+        "text": "c/button/color/danger/primary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/danger/primary/bg/disabled",
+        "border": "c/button/color/danger/primary/border/disabled",
+        "icon": "c/button/color/danger/primary/icon/disabled",
+        "text": "c/button/color/danger/primary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/danger/primary/bg/pressed",
+        "icon": "c/button/color/danger/primary/icon/pressed",
+        "text": "c/button/color/danger/primary/text/pressed"
+      }
+    },
+    "Danger/Secondary": {
+      "Default": {
+        "bg": "c/button/color/danger/secondary/bg/default",
+        "border": "c/button/color/danger/secondary/border/default",
+        "icon": "c/button/color/danger/secondary/icon/default",
+        "text": "c/button/color/danger/secondary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/danger/secondary/bg/disabled",
+        "border": "c/button/color/danger/secondary/border/disabled",
+        "icon": "c/button/color/danger/secondary/icon/disabled",
+        "text": "c/button/color/danger/secondary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/danger/secondary/bg/pressed",
+        "border": "c/button/color/danger/secondary/border/pressed",
+        "icon": "c/button/color/danger/secondary/icon/pressed",
+        "text": "c/button/color/danger/secondary/text/pressed"
+      }
+    },
+    "Inverse/Ghost": {
+      "Default": {
+        "icon": "c/button/color/inverse/ghost/icon/default",
+        "text": "c/button/color/inverse/ghost/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/inverse/ghost/bg/disabled",
+        "border": "c/button/color/inverse/ghost/border/disabled",
+        "icon": "c/button/color/inverse/ghost/icon/disabled",
+        "text": "c/button/color/inverse/ghost/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/inverse/ghost/bg/pressed",
+        "icon": "c/button/color/inverse/ghost/icon/pressed",
+        "text": "c/button/color/inverse/ghost/text/pressed"
+      }
+    },
+    "Inverse/Primary": {
+      "Default": {
+        "bg": "c/button/color/inverse/primary/bg/default",
+        "icon": "c/button/color/inverse/primary/icon/default",
+        "text": "c/button/color/inverse/primary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/inverse/primary/bg/disabled",
+        "border": "c/button/color/inverse/primary/border/disabled",
+        "icon": "c/button/color/inverse/primary/icon/disabled",
+        "text": "c/button/color/inverse/primary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/inverse/primary/bg/pressed",
+        "icon": "c/button/color/inverse/primary/icon/pressed",
+        "text": "c/button/color/inverse/primary/text/pressed"
+      }
+    },
+    "Inverse/Secondary": {
+      "Default": {
+        "border": "c/button/color/inverse/secondary/border/default",
+        "icon": "c/button/color/inverse/secondary/icon/default",
+        "text": "c/button/color/inverse/secondary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/inverse/secondary/bg/disabled",
+        "border": "c/button/color/inverse/secondary/border/disabled",
+        "icon": "c/button/color/inverse/secondary/icon/disabled",
+        "text": "c/button/color/inverse/secondary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/inverse/secondary/bg/pressed",
+        "border": "c/button/color/inverse/secondary/border/pressed",
+        "icon": "c/button/color/inverse/secondary/icon/pressed",
+        "text": "c/button/color/inverse/secondary/text/pressed"
+      }
+    },
+    "Neutral/Ghost": {
+      "Default": {
+        "icon": "c/button/color/neutral/ghost/icon/default",
+        "text": "c/button/color/neutral/ghost/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/neutral/ghost/bg/disabled",
+        "border": "c/button/color/neutral/ghost/border/disabled",
+        "icon": "c/button/color/neutral/ghost/icon/disabled",
+        "text": "c/button/color/neutral/ghost/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/neutral/ghost/bg/pressed",
+        "icon": "c/button/color/neutral/ghost/icon/pressed",
+        "text": "c/button/color/neutral/ghost/text/pressed"
+      }
+    },
+    "Neutral/Primary": {
+      "Default": {
+        "bg": "c/button/color/neutral/primary/bg/default",
+        "icon": "c/button/color/neutral/primary/icon/default",
+        "text": "c/button/color/neutral/primary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/neutral/primary/bg/disabled",
+        "border": "c/button/color/neutral/primary/border/disabled",
+        "icon": "c/button/color/neutral/primary/icon/disabled",
+        "text": "c/button/color/neutral/primary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/neutral/primary/bg/pressed",
+        "icon": "c/button/color/neutral/primary/icon/pressed",
+        "text": "c/button/color/neutral/primary/text/pressed"
+      }
+    },
+    "Neutral/Secondary": {
+      "Default": {
+        "bg": "c/button/color/neutral/secondary/bg/default",
+        "border": "c/button/color/neutral/secondary/border/default",
+        "icon": "c/button/color/neutral/secondary/icon/default",
+        "text": "c/button/color/neutral/secondary/text/default"
+      },
+      "Disabled": {
+        "bg": "c/button/color/neutral/secondary/bg/disabled",
+        "border": "c/button/color/neutral/secondary/border/disabled",
+        "icon": "c/button/color/neutral/secondary/icon/disabled",
+        "text": "c/button/color/neutral/secondary/text/disabled"
+      },
+      "Pressed": {
+        "bg": "c/button/color/neutral/secondary/bg/pressed",
+        "border": "c/button/color/neutral/secondary/bg/pressed",
+        "icon": "c/button/color/neutral/secondary/icon/pressed",
+        "text": "c/button/color/neutral/secondary/text/pressed"
+      }
+    }
+  }
+}

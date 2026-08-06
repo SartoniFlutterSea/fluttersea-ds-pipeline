@@ -1,0 +1,149 @@
+{
+  "_reproducibility": {
+    "antiPatterns": {
+      "figma": 11,
+      "metadata": 4
+    },
+    "behaviorKeys": {
+      "figma": 6,
+      "metadata": 3
+    },
+    "commonPatterns": {
+      "figma": 4,
+      "metadata": 3
+    },
+    "contentBlock": {
+      "figma": 1,
+      "metadata": 0
+    }
+  },
+  "_source": {
+    "behaviorFrame": {
+      "id": "10371:20945",
+      "page": "Button"
+    },
+    "confidence": "human-authored",
+    "ds": "b2c",
+    "fileKey": "QWM2EhgZmv2KKcqI0315fx",
+    "purposeFrame": {
+      "id": "10371:21175",
+      "page": "Button"
+    }
+  },
+  "antiPatterns": [
+    {
+      "alternative": "Use Button (with a visible label) for ambiguous or critical actions. Reserve Button Icon for universally recognisable actions (close, share, back, more) or contexts where the convention is already strong (heart in a product card).",
+      "origin": "purpose",
+      "reason": "An icon alone is ambiguous in those cases. Users have to read the surrounding context to understand the action, and they don't always succeed.",
+      "scenario": "Do not use an Icon Button when the action is not immediately understandable from the icon or surrounding context.",
+      "section": "1.2"
+    },
+    {
+      "alternative": "Use a labeled Button, and provide supporting text or a confirmation step when the consequence needs explanation.",
+      "origin": "purpose",
+      "reason": "Critical actions require clarity before interaction. An icon alone may not communicate enough information, especially in payment, gambling, account, or destructive flows.",
+      "scenario": "Do not use an Icon Button for important, transactional, or high-risk actions when the user needs a visible label to understand the consequence.",
+      "section": "1.2.1"
+    },
+    {
+      "alternative": "Use one Primary Icon Button for the most important action, and use Secondary or Ghost for the remaining actions.",
+      "origin": "purpose",
+      "reason": "Multiple Primary Icon Buttons compete for attention and make it unclear which action has priority.",
+      "scenario": "Do not use more than one Primary Icon Button in the same toolbar, header, card action area, modal header, or action group.",
+      "section": "1.2.2"
+    },
+    {
+      "alternative": "Use Neutral as the default appearance for standard icon actions, and reserve Brand, Accent, or Danger for actions that need specific semantic emphasis.",
+      "origin": "purpose",
+      "reason": "Too many semantic appearances create noise and weaken the user's ability to understand action priority and risk.",
+      "scenario": "Avoid mixing Brand, Neutral, Accent, and Danger appearances in the same compact action area unless each action has a distinct semantic role.",
+      "section": "1.2.3"
+    },
+    {
+      "alternative": "Use Secondary when the action must remain discoverable, or Primary when it is the most important action in the context.",
+      "origin": "purpose",
+      "reason": "Ghost has lower emphasis and can be missed in compact or dense interfaces. Using it for important actions can prevent users from noticing the available action.",
+      "scenario": "Do not use Ghost for icon actions that are important, unfamiliar, or required to complete the flow.",
+      "section": "1.2.4"
+    },
+    {
+      "alternative": "Provide a clear Alt-Text, such as Close, Share, Open search, Delete item, or Add to favourites.",
+      "origin": "purpose",
+      "reason": "Without visible text or an accessible name, assistive technologies may announce only that the control is a button, without explaining what it does.",
+      "scenario": "Do not use an Icon Button without an Alt-Text that describes the action.",
+      "section": "1.2.5"
+    },
+    {
+      "alternative": "Use Secondary (light fill plus border) when the surface is plain. Reserve Ghost for surfaces where the user already knows where to look (header, toolbar, action bar).",
+      "origin": "purpose",
+      "reason": "Ghost has no background or border by default. On chromatically neutral surfaces it becomes hard to discover and users miss it.",
+      "scenario": "Using Ghost on a low-contrast canvas (plain page background, no header or card behind).",
+      "section": "1.2.6"
+    },
+    {
+      "alternative": "On iOS Liquid Glass pick between Primary and Secondary. If the action should feel discreet on Glass, use Secondary.",
+      "origin": "purpose",
+      "reason": "The Liquid Glass version exposes only Primary and Secondary. Replicating Ghost by hand breaks the Glass system, which already manages its own transparency and depth.",
+      "scenario": "Trying to use Ghost on iOS Liquid Glass.",
+      "section": "1.2.7"
+    },
+    {
+      "origin": "behavior",
+      "scenario": "Do not use an icon that suggests a different action from the expected one.",
+      "section": "B.dont.1"
+    },
+    {
+      "origin": "behavior",
+      "scenario": "Do not place the action icon on the leading side when it breaks the reading flow or creates ambiguity.",
+      "section": "B.dont.2"
+    },
+    {
+      "origin": "behavior",
+      "scenario": "Do not rely on an icon-only action when the meaning is unclear without a label or too weak across the page.",
+      "section": "B.dont.3"
+    }
+  ],
+  "behavior": {
+    "iOS / Android": {
+      "animation": "The Icon Button must provide immediate feedback when pressed.\nTapping triggers the visual effect for the 'Pressed' state (a change in the background or fill colour). On iOS, the 'press-release' transition follows the default UIKit settings; on Android, it includes the Material Design 'ripple' effect. There is no opening or closing animation.",
+      "conditionalLogic": "The Icon Button supports three states: Default, Pressed and Disabled.\nDefault is used when the action is available.\nPressed is shown while the user is currently pressing the button (e.g. ripple state on android).\nDisabled is used when the action is unavailable, blocked, incomplete, or not allowed.\nWhen disabled, the Icon Button is visible (greyed out) but not interactive.\nDisabled Icon Buttons should be supported by contextual guidance when the user needs to understand how to enable the action.\nLoading state is not part of the current Icon Button behavior unless explicitly added as a product-specific state.",
+      "copyAndTruncation": "The Icon Button has no visible text label.\nVisible text truncation does not apply to this component.\nAn Alt-Text is mandatory to guarrantee accessibility.\nThe Alt-text must describe the action, not the icon.\nUse short, action-oriented Alt-text.",
+      "interactiveElements": "The entire Icon Button area is interactive.\nThe Icon Button triggers one action only.\nThe icon must communicate the action, not introduce additional meaning.\nA Disabled Icon Button is visible (greyed out) but not interactive.\nGuarrantee accessibility by adding an Alt-Text for every Icon Button.\nTooltips or helper labels may support discoverability in non-touch contexts, but they must not replace the Alt-text.\nIf the action needs a visible label to be understood, use a standard Button instead.",
+      "position": "Place the Icon Button close to the content, object, or context it acts on.\nUse Icon Buttons in compact action areas such as headers, toolbars, modal headers, card actions, list rows, media controls, and overlays.\nPlace navigation or dismissal actions consistently according to the platform and product pattern.\nUse leading and trailing placement instead of left and right.\nWhen multiple Icon Buttons coexist, group related actions together.\nDo not place Icon Buttons inside body text paragraphs.\nDo not place destructive Icon Buttons where they can be confused with neutral utility actions.",
+      "size": "Two Sizes: md (default, touch-target compliant) and sm (for dense toolbars). Icon scales accordingly: 24 in md, 20 in sm. When using sm, the parent wrapper must extend the hit area to platform minimum (44pt iOS, 48dp Android) because sm alone sits below the threshold.\nThe Icon Button touch target must meet platform accessibility requirements.\niOS: minimum hit area of 44×44 pt.\nAndroid / Material: minimum touch target of 48×48 dp.\nDo not reduce the interactive area below the platform minimum in dense layouts.\nDo not allow adjacent Icon Button touch targets to overlap."
+    }
+  },
+  "commonPatterns": [
+    {
+      "description": "An Icon Button is an interactive control that allows the user to trigger a single action through an icon alone, without a visible text label. It exists for compact contexts where the action is already clear from the icon, the surrounding interface, or a widely recognized convention.\nThe Icon Button should be used only when the icon can communicate the action without ambiguity. If the action requires explanation, carries risk, or is not immediately recognizable, use a Button with a visible label instead.\n\nThe Icon Button component is defined by two independent decision axes: \nHierarchy: defines the relative emphasis of the action within the current context:\nPrimary: the most important icon action in the current context.\nSecondary: a standard icon action that must remain discoverable.\nGhost: a low-impact icon action used in compact or familiar contexts. \nAppearance: defines the semantic context of the action\nBrand: product-level icon actions that are clear from context.\nNeutral: standard utility actions, such as close, back, share, search, or more.\nAccent: emphasized secondary icon actions.\nDanger: destructive or high-risk icon actions.\nInverse: icon actions placed on dark surfaces or image-based backgrounds.",
+      "origin": "purpose",
+      "section": "1.1"
+    },
+    {
+      "description": "Use a clear and familiar icon for the action it performs.",
+      "origin": "behavior",
+      "section": "B.do.1"
+    },
+    {
+      "description": "Place the action icon on the trailing side of the related content.",
+      "origin": "behavior",
+      "section": "B.do.2"
+    },
+    {
+      "description": "Use a button with an icon inside, to reinforce the button hierarchy across the page",
+      "origin": "behavior",
+      "section": "B.do.3"
+    }
+  ],
+  "componentName": "Button Icon",
+  "id": "ds.button-icon",
+  "purpose": "An Icon Button is an interactive control that allows the user to trigger a single action through an icon alone, without a visible text label. It exists for compact contexts where the action is already clear from the icon, the surrounding interface, or a widely recognized convention.\nThe Icon Button should be used only when the icon can communicate the action without ambiguity. If the action requires explanation, carries risk, or is not immediately recognizable, use a Button with a visible label instead.\n\nThe Icon Button component is defined by two independent decision axes: \nHierarchy: defines the relative emphasis of the action within the current context:\nPrimary: the most important icon action in the current context.\nSecondary: a standard icon action that must remain discoverable.\nGhost: a low-impact icon action used in compact or familiar contexts. \nAppearance: defines the semantic context of the action\nBrand: product-level icon actions that are clear from context.\nNeutral: standard utility actions, such as close, back, share, search, or more.\nAccent: emphasized secondary icon actions.\nDanger: destructive or high-risk icon actions.\nInverse: icon actions placed on dark surfaces or image-based backgrounds.",
+  "usedIn": [
+    "Header / Navbar action slots (close, back, share, more)",
+    "Modal / Drawer overlays (X to close)",
+    "Inside components (eg. cards) where an explicit action is needed e.g heart to like, Chevron to navigate etc..",
+    "Media or content controls.",
+    "Dense list or row actions  e.g chevron to navigate",
+    "Contextual actions where the related content is immediately visible  e.g informative icon that triggers a tooltip or a popup"
+  ]
+}

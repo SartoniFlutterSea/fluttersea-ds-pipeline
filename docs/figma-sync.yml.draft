@@ -1,0 +1,69 @@
+# Bozza — da spostare in .github/workflows/ quando i segreti sono configurati.
+#
+# Due fasi in un solo workflow:
+#   1. CHECK    una chiamata per file, <1s: e' cambiato qualcosa?
+#   2. EXTRACT  gira solo se il check dice di si'. Apre una PR, mai un commit su main.
+#
+# Lo stato "ultima versione vista" NON ha bisogno di uno store esterno:
+# sta gia' nei file estratti (campo `lastModified`), che sono in repo.
+
+name: Figma sync
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'      # ogni 15 minuti
+  workflow_dispatch:             # esecuzione manuale
+  repository_dispatch:
+    types: [figma-changed]       # <- il webhook, quando ci sara'. Stesso lavoro.
+
+concurrency:
+  group: figma-sync              # mai due estrazioni in parallelo
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+      files: ${{ steps.diff.outputs.files }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: diff
+        name: I file Figma sono cambiati?
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+        run: node design2code/src/check-changed.mjs
+
+  extract:
+    needs: check
+    if: needs.check.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+
+      - name: Estrai
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+        run: |
+          node design2code/src/resolve-tokens.mjs sisal light
+          node design2code/src/scan-files.mjs
+          node design2code/src/extract-all.mjs      # tutti i componenti cambiati
+
+      - name: Valida
+        run: node design2code/src/validate.mjs      # schema, riferimenti, hex, determinismo
+
+      - name: Apri la PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: figma/sync
+          title: "Figma → aggiornamento del design system"
+          body-path: design2code/out/pr-summary.md   # il riassunto leggibile
+          labels: figma-sync
+          delete-branch: true

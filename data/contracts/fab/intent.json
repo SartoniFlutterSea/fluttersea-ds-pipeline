@@ -1,0 +1,69 @@
+{
+  "_reproducibility": {
+    "antiPatternsInFigma": 5,
+    "antiPatternsInMetadata": 5,
+    "commonPatternsInMetadata": 3,
+    "doBlocksInFigma": 1
+  },
+  "_source": {
+    "confidence": "human-authored",
+    "ds": "b2c",
+    "fileKey": "QWM2EhgZmv2KKcqI0315fx",
+    "frame": {
+      "id": "8743:98146",
+      "name": "Purpose & Usage",
+      "page": "Button"
+    },
+    "method": "estrazione automatica dai frame Purpose & Usage — mappa SCHEMA.md §5"
+  },
+  "antiPatterns": [
+    {
+      "_section": "1.2",
+      "alternative": "Only one FAB per page. If several persistent actions seem needed, identify which one truly must always be reachable and keep that as FAB. The others move to inline placements (Button, Button Icon in the header, Quicklink).",
+      "id": null,
+      "reason": "Material 3 expects a single persistent FAB. Multiple FABs compete for attention, the user can't tell which one is 'the' main action, and the metaphor of a single always-available action breaks.",
+      "scenario": "More than one FAB visible on the same page (e.g. filters + back-to-top + new content together)."
+    },
+    {
+      "_section": "1.3",
+      "alternative": "For per-item or per-section actions use Button, Button Icon or Quicklink inline. Reserve the FAB for page-level actions that must remain reachable through the whole scroll.",
+      "id": null,
+      "reason": "The FAB is designed to float over the scrollable content. Inline, it looks like an action on the single item nearby and loses its 'always present' role during scroll.",
+      "scenario": "Placing the FAB inline in the content (inside a card, between listing items, below a section title)."
+    },
+    {
+      "_section": "1.4",
+      "alternative": "Show the FAB only on pages that are actually scrollable beyond one viewport. On short pages, place the primary action inline in the content or in a sticky footer.",
+      "id": null,
+      "reason": "On short pages everything is already visible. The 'always accessible' metaphor adds no value and the FAB just covers content as visual noise.",
+      "scenario": "Putting a FAB on a short page that fits in 1 or 2 viewports."
+    },
+    {
+      "_section": "1.5",
+      "alternative": "Add padding-bottom to the scrollable content equal to the FAB height plus the safe area, so the user can scroll past it. For very dense pages, consider a scroll-aware FAB that compresses or hides when the user reaches the bottom.",
+      "id": null,
+      "reason": "The FAB sits on top of the scroll: if the scrollable content has no extra padding-bottom, the bottom area is permanently hidden under the FAB.",
+      "scenario": "Letting the FAB cover critical content permanently (last item of a listing, inline CTA in a banner, important info in the page footer)."
+    },
+    {
+      "_section": "1.6",
+      "alternative": "On standard builds (Android, iOS) use the standard FAB family. On the Liquid Glass build use the Liquid Glass family. The consumer or builder selects the family based on the build target.",
+      "id": null,
+      "reason": "The standard FAB (Android / iOS) is an instance of the Button with two properties (os, Label). The Liquid Glass FAB is a separate family with Hierarchy (Primary, Secondary), no Pressed state, and a single size. Picking variants that belong to the wrong family breaks the platform consistency.",
+      "scenario": "Mixing the standard variants with the Liquid Glass variants on the wrong target build."
+    }
+  ],
+  "commonPatterns": [
+    {
+      "description": "Use the FAB (Floating Action Button) only for actions that must remain always accessible during the scroll of a long page. It is a single, persistent action floating over the scrollable content, one instance per page. Implementation note: the FAB is an instance of the Button, so all styling and state visuals (Default, Pressed, Disabled) are delegated to the Button. The FAB exposes only two own properties: os (android, ios) and Label (yes, no, when no the FAB is the icon-only square).\n\nCommon scenarios in the DS Cross-App:\n\n• Filter entry point: floating over the navbar, opens the filter bottom sheet. Only this pattern uses a Notification Badge on the icon, to surface the count of applied filters.\n• Scroll-to-top: appears past a scroll threshold, hides near the top. Typically icon-only (Label=no).",
+      "section": "1.1"
+    }
+  ],
+  "componentName": "FAB",
+  "id": "ds.fab",
+  "purpose": "Use the FAB (Floating Action Button) only for actions that must remain always accessible during the scroll of a long page. It is a single, persistent action floating over the scrollable content, one instance per page. Implementation note: the FAB is an instance of the Button, so all styling and state visuals (Default, Pressed, Disabled) are delegated to the Button. The FAB exposes only two own properties: os (android, ios) and Label (yes, no, when no the FAB is the icon-only square).\n\nCommon scenarios in the DS Cross-App:\n\n• Filter entry point: floating over the navbar, opens the filter bottom sheet. Only this pattern uses a Notification Badge on the icon, to surface the count of applied filters.\n• Scroll-to-top: appears past a scroll threshold, hides near the top. Typically icon-only (Label=no).",
+  "usedIn": [
+    "Homepage (filter entry point)",
+    "Long pages or long lists (scroll-to-top)"
+  ]
+}
