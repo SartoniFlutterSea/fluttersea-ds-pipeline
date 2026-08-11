@@ -203,8 +203,22 @@ class Grafo:
         }
 
 
-def classifica_frame(nome: str, larghezza: float | None, dentro_componente: bool) -> str:
-    """Tipologia di un FRAME, dai soli segnali misurabili."""
+def classifica_frame(nome: str, larghezza: float | None, dentro_componente: bool,
+                     sulla_pagina: bool = False) -> str:
+    """
+    Tipologia di un FRAME, dai soli segnali misurabili.
+
+    ⚠️ La PROFONDITA' e' il segnale decisivo, e la sua assenza era un difetto
+    grave. Basandosi sulla sola larghezza si contavano 6.725 «schermate» con
+    581 nomi distinti: 846 si chiamavano «Name Container», 423 «container».
+    Erano contenitori interni larghi 360 o 320, larghezze che coincidono con
+    quelle dei dispositivi.
+
+    Una schermata, come una scheda di documentazione, sta DIRETTAMENTE sulla
+    pagina. Quello che sta piu' in fondo e' struttura interna.
+    """
+    if not sulla_pagina:
+        return "non classificato"
     if DOC_RE.search(nome or ""):
         return "documentazione"
     if not dentro_componente and larghezza and int(round(larghezza)) in LARGHEZZE_DISPOSITIVO:

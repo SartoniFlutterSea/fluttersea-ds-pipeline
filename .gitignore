@@ -37,3 +37,4 @@ data/mappa-componenti.json
 
 # Grafo: derivato, si rigenera con tools/index_keys, graph_file, build_graph
 data/grafo/
+data/pagine.json

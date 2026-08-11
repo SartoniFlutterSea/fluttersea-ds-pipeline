@@ -188,7 +188,10 @@ def analizza(file_key: str, indice: dict) -> tuple[G.Grafo, dict]:
             # `remote` distingue un componente di QUESTO file da uno importato
             # da una libreria. Senza, un componente locale non pubblicato
             # sembrerebbe un riferimento esterno irrisolto.
-            per_nodo[nid] = {"key": k, "nome": voce.get("name"), "remote": bool(voce.get("remote"))}
+            per_nodo[nid] = {"key": k, "nome": voce.get("name"),
+                             "remote": bool(voce.get("remote")),
+                             # se c'e', questo componente e' una VARIANTE di un set
+                             "set": voce.get("componentSetId")}
 
     conta = {"nodi": 0, "istanze": 0, "senzaManifest": 0, "esterne": 0, "interne": 0,
              "localiNonPubblicati": 0, "esterneIgnote": 0,
@@ -197,6 +200,7 @@ def analizza(file_key: str, indice: dict) -> tuple[G.Grafo, dict]:
     # ⚠️ `document` precede i manifest nel JSON: durante l'attraversamento
     # `per_nodo` e' ancora vuoto. Si accumula e si risolve DOPO, quando il
     # manifest e' completo. Si conservano solo tuple leggere, non i nodi.
+    varianti: dict[str, int] = {}                              # chiave del set -> quante varianti
     visti_componenti: list[tuple[str, str, str | None]] = []   # (nodeId, nome, antenatoNodeId)
     visti_istanze: list[tuple[str | None, str]] = []           # (antenatoNodeId, componentId)
 
@@ -223,7 +227,9 @@ def analizza(file_key: str, indice: dict) -> tuple[G.Grafo, dict]:
 
         # schermate e documentazione: solo fuori da un componente
         if tipo == "FRAME" and nid:
-            classe = G.classifica_frame(nome, nodo.get("larghezza"), bool(antenato))
+            # pila = [documento, pagina] quando il frame sta sulla pagina
+            classe = G.classifica_frame(nome, nodo.get("larghezza"), bool(antenato),
+                                        sulla_pagina=len(pila) == 2)
             if classe == "schermata":
                 conta["schermate"] += 1
                 g.nodo(G.id_nodo(file_key, nid), "schermata", file=file_key, nome=nome,
@@ -245,10 +251,27 @@ def analizza(file_key: str, indice: dict) -> tuple[G.Grafo, dict]:
 
     # ── risoluzione, ora che il manifest c'e' ────────────────────────────────
     def chiave_di(node_id):
+        """
+        La chiave dell'unita' significativa. Una COMPONENT che appartiene a un
+        COMPONENT_SET e' una VARIANTE, non un componente a se': Button ha 90
+        combinazioni di varianti, e contarle una per una gonfiava il totale di
+        2,6 volte. L'unita' e' il set; le varianti diventano un suo attributo.
+        """
         voce = per_nodo.get(node_id)
-        return voce["key"] if voce else None
+        if not voce:
+            return None
+        sid = voce.get("set")
+        if sid:
+            padre = per_nodo.get(sid)
+            if padre:
+                varianti[padre["key"]] = varianti.get(padre["key"], 0) + 1
+                return padre["key"]
+        return voce["key"]
 
     for nid, nome, antenato in visti_componenti:
+        voce = per_nodo.get(nid)
+        if voce and voce.get("set"):
+            continue                      # e' una variante: conta il set, non lei
         k = chiave_di(nid)
         if not k:
             continue                      # componente non pubblicato: non e' un nodo del grafo
@@ -310,6 +333,11 @@ def analizza(file_key: str, indice: dict) -> tuple[G.Grafo, dict]:
             else:
                 g.irrisolto(tipo="variabile", da=ident, chiave=ck, modo=a.get("modo"))
 
+    for k, n_var in varianti.items():
+        nodo = g.nodi.get(G.id_componente(k))
+        if nodo:
+            nodo["varianti"] = max(nodo.get("varianti", 0), n_var)
+    conta["setConVarianti"] = len(varianti)
     conta["modo"] = modo
     conta["manifest"] = len(per_nodo)
     conta["secondi"] = round(durata, 1)
