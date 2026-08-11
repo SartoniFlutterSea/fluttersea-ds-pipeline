@@ -13,7 +13,7 @@
       "metadata": 6
     },
     "contentBlock": {
-      "figma": 0,
+      "figma": 1,
       "metadata": 0
     }
   },
@@ -55,9 +55,9 @@
   "behavior": {
     "iOS / Android": {
       "animation": "The Button must provide immediate feedback when pressed.\nProduct-specific transitions, durations, easing, haptics, background changes, or border changes must be documented in UI or motion specifications.\nTap triggers the Pressed state visual (background / border tint change). On iOS the press-to-release transition follows UIKit defaults; on Android it includes the Material ripple.",
-      "conditionallogic": "The Button supports three states: Default, Pressed, Disabled.\nDefault is used when the action is available.\nPressed is used only while the user is actively pressing the Button.\nDisabled is used when the action is unavailable, incomplete, blocked, or not allowed.\nWhen disabled, the Button is still visible (greyed out) but not interactive.",
-      "copyAndtruncation": "Keep labels short (1–3 words) to avoid wrapping in compact containers and to stay readable on small viewports. \nThe Button label is mandatory.\nUse short, action-oriented labels.\nThe label must describe the outcome of the action.\nUse one action per Button label.\nAvoid vague labels when the result is not clear from context.\nDo not use explanatory text inside the Button.\nMove conditions, warnings, or explanations outside the Button.\nThe Button label should remain on one line.\nIf the label does not fit, use a shorter label or adapt the layout.\nIf large font scaling causes overflow, consider reducing font size.",
-      "interactiveelements": "The entire Button area is interactive.\nThe label and icons are part of the same touch target area.\nIcons inside a Button reinforce the action but must not introduce a second action.\nA Disabled Button is visible (greyed out) but not interactive.",
+      "conditionalLogic": "The Button supports three states: Default, Pressed, Disabled.\nDefault is used when the action is available.\nPressed is used only while the user is actively pressing the Button.\nDisabled is used when the action is unavailable, incomplete, blocked, or not allowed.\nWhen disabled, the Button is still visible (greyed out) but not interactive.",
+      "copyAndTruncation": "Keep labels short (1–3 words) to avoid wrapping in compact containers and to stay readable on small viewports. \nThe Button label is mandatory.\nUse short, action-oriented labels.\nThe label must describe the outcome of the action.\nUse one action per Button label.\nAvoid vague labels when the result is not clear from context.\nDo not use explanatory text inside the Button.\nMove conditions, warnings, or explanations outside the Button.\nThe Button label should remain on one line.\nIf the label does not fit, use a shorter label or adapt the layout.\nIf large font scaling causes overflow, consider reducing font size.",
+      "interactiveElements": "The entire Button area is interactive.\nThe label and icons are part of the same touch target area.\nIcons inside a Button reinforce the action but must not introduce a second action.\nA Disabled Button is visible (greyed out) but not interactive.",
       "position": "Place the Button close to the content, decision, or flow step it acts on. \nIn an inline Button Group, place the Primary Button on the trailing side.\nPlace Secondary or Ghost actions on the leading side when they appear next to a Primary Button.",
       "size": "The Button touch target must meet platform accessibility requirements.\niOS: minimum hit area of 44×44 pt.\nAndroid / Material: minimum touch target of 48×48 dp.\nThe visible Button size may be smaller only if the effective interactive area still meets the platform minimum."
     }
@@ -92,5 +92,7 @@
   "componentName": "Button",
   "id": "ds.button",
   "purpose": "The Button is an interactive control that allows the user to trigger an action, submit a decision, start a process, or confirm an intent. It exists to make actionable choices clear, recognizable, and easy to activate across different product flows. \n\nThe Button component is defined by two independent decision axes: \nHierarchy: defines the visual weight of the action within the screen:\nPrimary: the single main action of the screen or action context.\nSecondary: an alternative, supporting, or equal-weight side action next to a Primary.\nGhost: a low-impact contextual action, such as Skip, Later, Show more, or similar non-blocking actions.\n For all the status described above, an icon can be actived (left or right). \nAppearance: defines the semantic context of the action:\nBrand: product-level CTAs, such as Confirm, Continue, or Play.\nNeutral: standard actions, technical actions, or settings-related actions, such as Save or Apply.\nAccent: emphasised secondary actions that need more visibility without becoming the main action.\nDanger: irreversible, destructive, or high-risk actions, such as Delete account or Cancel order.\nInverse: buttons placed on dark surfaces where the standard appearance would not provide the correct contextual contrast.",
-  "usedIn": []
+  "usedIn": [
+    "Form submission and confirmation flows.\nStep-by-step flows where the user advances, confirms, or cancels.\nModal, dialog, or bottom-sheet actions.\nCard or content-area actions.\nSettings and preference management.\nTransactional flows requiring explicit user intent.\nDestructive or high-risk flows that need clear semantic emphasis.\nProduct-level CTAs that drive the main user task."
+  ]
 }

@@ -168,11 +168,17 @@ def _serializzabile(o: Any) -> Any:
 
 
 def scrivi_json(percorso: Path, dati: Any) -> None:
-    """Output canonico: chiavi ordinate, numeri arrotondati, nessuna data dentro."""
+    """
+    Output canonico: chiavi ordinate, numeri arrotondati, nessuna data dentro.
+
+    I fine riga sono forzati a LF. Senza, su Windows Python traduce a CRLF e
+    lo stesso artefatto risulta diverso a seconda della piattaforma: la
+    pipeline girera' su Linux in CI, e OGNI file apparirebbe modificato.
+    """
     import json
 
     percorso.parent.mkdir(parents=True, exist_ok=True)
-    percorso.write_text(
-        json.dumps(dati, indent=2, ensure_ascii=False, sort_keys=True, default=_serializzabile) + "\n",
-        encoding="utf-8",
-    )
+    testo = json.dumps(dati, indent=2, ensure_ascii=False, sort_keys=True,
+                       default=_serializzabile) + chr(10)
+    with open(percorso, "w", encoding="utf-8", newline=chr(10)) as fh:
+        fh.write(testo)

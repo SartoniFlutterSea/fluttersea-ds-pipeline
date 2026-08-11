@@ -7,9 +7,7 @@
   "scripts": {
     "stories": "node scripts/build-stories.mjs",
     "storybook": "npm run stories && storybook dev -p 6006",
-    "build-storybook": "npm run stories && storybook build",
-    "extract:tokens": "node tools/resolve-tokens.mjs sisal light",
-    "scan": "node tools/scan-files.mjs"
+    "build-storybook": "npm run stories && storybook build"
   },
   "devDependencies": {
     "@storybook/addon-docs": "^10.5.6",
