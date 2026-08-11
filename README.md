@@ -1,4 +1,4 @@
-# fluttersea-ds-ai
+# fluttersea-ds-pipeline
 
 Estrae il **Design System Cross-App** da Figma verso JSON strutturati, e ne
 pubblica la documentazione come sito statico.
