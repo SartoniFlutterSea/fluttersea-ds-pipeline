@@ -34,3 +34,6 @@ data/figma-teams-inventory.json
 data/figma-censimento.json
 data/figma-descrizioni.json
 data/mappa-componenti.json
+
+# Grafo: derivato, si rigenera con tools/index_keys, graph_file, build_graph
+data/grafo/

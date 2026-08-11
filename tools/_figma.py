@@ -152,9 +152,27 @@ class Figma:
             return list(ex.map(lavoro, elementi))
 
 
+def _serializzabile(o: Any) -> Any:
+    """
+    ijson restituisce i numeri come Decimal, che json non sa scrivere.
+    Si arrotondano anche a due cifre: l'output deve essere CANONICO, cosi' due
+    estrazioni identiche producono file identici e ogni differenza in revisione
+    e' un cambiamento vero.
+    """
+    from decimal import Decimal
+
+    if isinstance(o, Decimal):
+        f = float(o)
+        return int(f) if f.is_integer() else round(f, 2)
+    raise TypeError(f"non serializzabile: {type(o).__name__}")
+
+
 def scrivi_json(percorso: Path, dati: Any) -> None:
-    """Output canonico: chiavi ordinate, niente date dentro l'artefatto."""
+    """Output canonico: chiavi ordinate, numeri arrotondati, nessuna data dentro."""
     import json
 
     percorso.parent.mkdir(parents=True, exist_ok=True)
-    percorso.write_text(json.dumps(dati, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+    percorso.write_text(
+        json.dumps(dati, indent=2, ensure_ascii=False, sort_keys=True, default=_serializzabile) + "\n",
+        encoding="utf-8",
+    )
