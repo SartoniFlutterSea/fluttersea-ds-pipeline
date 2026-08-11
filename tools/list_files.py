@@ -10,6 +10,11 @@ Attenzione: un progetto vuoto e un progetto a cui non si ha accesso
 restituiscono entrambi una lista vuota. L'API non li distingue.
 
   python tools/list_files.py <teamId> [<teamId> ...]
+  python tools/list_files.py --progetto=<projectId> [...]
+
+Il secondo serve quando si conosce l'URL di un progetto ma non il team che lo
+contiene: e' il caso di DS B2B, che vive in un progetto di commessa fuori dal
+workspace dei design system.
 """
 import sys
 from pathlib import Path
@@ -20,8 +25,10 @@ from _figma import ROOT, Figma, scrivi_json  # noqa: E402
 USCITA = ROOT / "data" / "figma-teams-inventory.json"
 
 
-def main(team_ids: list[str]) -> int:
-    if not team_ids:
+def main(argv: list[str]) -> int:
+    team_ids = [a for a in argv if not a.startswith("--")]
+    progetti_sciolti = [a.split("=", 1)[1] for a in argv if a.startswith("--progetto=")]
+    if not team_ids and not progetti_sciolti:
         print(
             "\n  Serve almeno un identificativo di team.\n"
             "    python tools/list_files.py <teamId> [<teamId> ...]\n\n"
@@ -64,6 +71,29 @@ def main(team_ids: list[str]) -> int:
 
         inventario["teams"].append(team)
 
+    # Progetti indicati direttamente, senza passare dal team.
+    if progetti_sciolti:
+        sciolti = {"id": None, "name": "(progetti indicati a mano)", "projects": []}
+        for pid in progetti_sciolti:
+            fl, err = f.prova(f"projects/{pid}/files")
+            if err:
+                print()
+                print(f"▸ progetto {pid}  ✖ {err}")
+                inventario["errors"].append({"projectId": pid, "error": err})
+                continue
+            files = [
+                {"key": x["key"], "name": x["name"], "lastModified": x.get("last_modified")}
+                for x in (fl.get("files") or [])
+            ]
+            nome = fl.get("name") or pid
+            sciolti["projects"].append({"id": pid, "name": nome, "files": files})
+            inventario["totals"]["projects"] += 1
+            inventario["totals"]["files"] += len(files)
+            print()
+            print(f"▸ progetto {pid}  \"{nome}\"  ·  {len(files)} file")
+        if sciolti["projects"]:
+            inventario["teams"].append(sciolti)
+
     scrivi_json(USCITA, inventario)
     linea = "─" * 64
     print(f"\n{linea}")
@@ -76,4 +106,4 @@ def main(team_ids: list[str]) -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main([a for a in sys.argv[1:] if not a.startswith("--")]))
+    raise SystemExit(main(sys.argv[1:]))

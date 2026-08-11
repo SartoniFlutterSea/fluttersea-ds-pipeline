@@ -1,6 +1,6 @@
 # Mappa dei file Figma
 
-113 file, aperti uno per uno.
+118 file, aperti uno per uno.
 
 Ogni descrizione e' **derivata dai nomi delle pagine**, non scritta a mano:
 conta le pagine, riconosce i marcatori di stato, cerca un vocabolario di
@@ -11,17 +11,17 @@ invece di essere indovinato.
 
 | Categoria | File |
 |---|---|
-| design-system | 37 |
+| design-system | 38 |
 | libreria | 34 |
-| non classificato | 14 |
+| non classificato | 16 |
 | prova | 8 |
-| copia | 6 |
+| copia | 8 |
 | componenti | 3 |
 | documentazione | 3 |
 | analisi | 3 |
 | scheletro | 3 |
-| non leggibile | 1 |
 | archivio | 1 |
+| non leggibile | 1 |
 
 ## Albero
 
@@ -30,6 +30,24 @@ invece di essere indovinato.
 - **🏗️ DS B2B** · `design-system` · 2026-08-10
   - 68 pagine. di cui 5 assente, 5 in lavorazione, 4 sezione, 3 in corso, 1 da decidere, 1 non modificare. fra cui Thumbnail, About, Foundations, Typography. Classificato «design-system»: il nome indica un design system.
   - `AFsC1fNp7mYe6Qm4l2Cfin`
+
+### (progetti indicati a mano) / PRJ0011654 - Scratch&Win Platform (Online)
+
+- **PRJ0011654 - Scratch&Win Platform (Online)** · `non classificato` · 2026-02-17
+  - 1 pagina. fra cui Page 1. Classificato «non classificato»: 1 pagine, nessun segnale riconoscibile.
+  - `tRsAuv6Qk2pGs3rpBpzXAW`
+- **PRJ0011654 - Scratch&Win Platform (Online) - Board di Progetto** · `non classificato` · 2026-02-18
+  - 1 pagina. fra cui Analisi As-is. Classificato «non classificato»: 1 pagine, nessun segnale riconoscibile.
+  - `aOeIQJajWPGGaNRmPqafmn`
+- **Scratch and Win UI Kit (Copy)** · `copia` · 2026-05-05
+  - 59 pagine. di cui 3 sezione, 1 non modificare. fra cui Thumbnail, About, Foundations, Colors. Classificato «copia»: il nome contiene «Copy».
+  - `fax7N6g75eiMwiqXxmrh0u`
+- **🏗️ DS B2B (Copy)** · `copia` · 2026-07-20
+  - 59 pagine. di cui 6 assente, 3 sezione, 1 da decidere, 1 non modificare. fra cui Thumbnail, About, Foundations, Typography. Classificato «copia»: il nome contiene «Copy».
+  - `xjLsPbZyTg3zB4YS2vA0Ta`
+- **🏗️S&W COPY** · `design-system` · 2026-05-19
+  - 63 pagine. di cui 3 sezione, 2 da decidere, 1 non modificare. fra cui Thumbnail, About, Foundations, Colors. Classificato «design-system»: 30 pagine con nomi di componenti.
+  - `DgMuYv2bLb7YYZMZWjm4PT`
 
 ### ARCHIVIO / App
 
