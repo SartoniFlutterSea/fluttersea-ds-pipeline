@@ -2,14 +2,18 @@
 
 Riferimento di cosa il sistema chiede a Figma, quanto costa, e cosa non usa.
 
-> **Tutte le chiamate sono in lettura.** Non esiste una sola chiamata di
-> scrittura nel codice: il sistema non può modificare Figma, neanche per errore.
+> **Tutte le chiamate del codice sono in lettura.** Verificato riga per riga:
+> non esiste una `POST`, `PUT`, `PATCH` o `DELETE` verso i file.
+>
+> ⚠️ **Ma il token non è a sola lettura.** Vedi [Scope del token](#scope-del-token):
+> possiede permessi di scrittura su variabili, commenti, Code Connect e dev
+> resources. La garanzia sta nel codice, non nel permesso.
 
 ---
 
 ## Autenticazione
 
-Un token a sola lettura, passato nell'intestazione:
+Un token passato nell'intestazione:
 
 ```
 X-Figma-Token: <token>
@@ -17,6 +21,27 @@ X-Figma-Token: <token>
 
 Il token arriva dall'ambiente (`FIGMA_TOKEN`), come lo passa la CI, con
 `.env.local` come ripiego locale. Non compare mai nel codice né in repo.
+
+### Scope del token
+
+Ricavati dalla risposta di `/v1/me`, che li elenca nell'errore.
+
+| Lettura | Scrittura |
+|---|---|
+| `file_content:read` | ⚠️ `file_variables:write` |
+| `file_metadata:read` | ⚠️ `file_comments:write` |
+| `file_versions:read` | ⚠️ `file_code_connect:write` |
+| `file_comments:read` | ⚠️ `file_dev_resources:write` |
+| `file_variables:read` | |
+| `library_content:read` · `library_assets:read` · `library_analytics:read` | |
+| `team_library_content:read` · `file_dev_resources:read` | |
+
+⚠️ `file_variables:write` consente di **modificare le variabili**, cioè i token
+del design system. Il nostro codice non lo fa, ma un token con quel permesso in
+un file `.env` è un rischio da conoscere.
+
+**Assenti:** `current_user:read` (perciò `/v1/me` risponde `403`) e ogni scope
+sui webhook.
 
 ---
 
@@ -156,10 +181,15 @@ tocca il contenuto dei file.
 
 ---
 
-## Cosa il sistema non fa, e non può fare
+## Cosa il sistema non fa
 
 - **Non scrive su Figma.** Nessuna chiamata `POST`, `PUT`, `PATCH` o `DELETE`
-  verso i file.
+  verso i file, verificato riga per riga sul codice.
 - **Non legge i commenti**, né i dati degli utenti.
 - **Non accede a file diversi** da quelli configurati e da quelli raggiunti
   seguendo i rimandi delle variabili.
+
+⚠️ Notare la formulazione: *non fa*, non *non può*. Il token ha permessi di
+scrittura su variabili, commenti, Code Connect e dev resources. Chi volesse la
+garanzia a livello di permesso, e non di codice, deve chiedere un token con i
+soli scope in lettura.

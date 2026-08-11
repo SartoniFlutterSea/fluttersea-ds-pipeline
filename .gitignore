@@ -26,3 +26,6 @@ data/figma-pages.json
 # Token risolti: valori reali dei brand, restano fuori dalla repo pubblica.
 # Si rigenerano con: node tools/resolve-tokens.mjs <brand> <tema>
 data/tokens/
+
+# Inventario: si rigenera con tools/list-files.mjs
+data/figma-inventory.json
