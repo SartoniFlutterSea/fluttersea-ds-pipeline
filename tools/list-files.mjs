@@ -17,7 +17,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { ROOT, TOKEN } from './_env.mjs';
 
-const OUT = path.join(ROOT, 'data', 'figma-inventory.json');
+const OUT = path.join(ROOT, 'data', 'figma-teams-inventory.json');
 
 async function api(url, tries = 4) {
   for (let i = 1; i <= tries; i++) {
@@ -93,4 +93,4 @@ const L = '─'.repeat(64);
 console.log(`\n${L}`);
 console.log(`  team ${inventory.teams.length} · progetti ${inventory.totals.projects} · file ${inventory.totals.files}`);
 if (inventory.errors.length) console.log(`  ⚠️  ${inventory.errors.length} errori, registrati nell'inventario`);
-console.log(`  scritto data/figma-inventory.json\n${L}\n`);
+console.log(`  scritto data/figma-teams-inventory.json\n${L}\n`);

@@ -16,26 +16,39 @@ import { fileURLToPath } from 'node:url';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
+/* Nomi accettati, in ordine di preferenza. FIGMA_TOKEN_FULL e' il token con
+   tutti gli scope, incluso projects:read che serve a elencare i file. */
+const NAMES = ['FIGMA_TOKEN_FULL', 'FIGMA_ACCESS_TOKEN', 'FIGMA_TOKEN'];
+
 const fromFile = p => {
-  try { return fs.readFileSync(p, 'utf8').match(/^FIGMA_ACCESS_TOKEN=(.+)$/m)?.[1]?.trim() || null; }
-  catch { return null; }
+  let txt;
+  try { txt = fs.readFileSync(p, 'utf8'); } catch { return null; }
+  for (const n of NAMES) {
+    const m = txt.match(new RegExp(`^\s*${n}\s*=\s*(.+)$`, 'm'));
+    if (m) { const v = m[1].trim().replace(/^["']|["']$/g, ''); if (v) return v; }
+  }
+  return null;
 };
 
 export const TOKEN = (() => {
-  const env = process.env.FIGMA_TOKEN || process.env.FIGMA_ACCESS_TOKEN;
-  if (env?.trim()) return env.trim();
+  for (const n of NAMES) if (process.env[n]?.trim()) return process.env[n].trim();
 
-  for (const p of [process.env.FIGMA_ENV_FILE, path.join(ROOT, '.env.local')].filter(Boolean)) {
+  const candidates = [
+    process.env.FIGMA_ENV_FILE,
+    path.join(ROOT, 'credentials.env'),
+    path.join(ROOT, '.env.local'),
+  ].filter(Boolean);
+  for (const p of candidates) {
     const t = fromFile(p);
     if (t) return t;
   }
 
   console.error([
     '',
-    '  Token Figma non trovato. Una di queste:',
-    '    export FIGMA_TOKEN=...',
-    '    export FIGMA_ENV_FILE=/percorso/di/.env.local',
-    '    creare .env.local nella radice con FIGMA_ACCESS_TOKEN=...',
+    '  Token Figma non trovato. Cercato in:',
+    '    variabili d ambiente  FIGMA_TOKEN_FULL, FIGMA_ACCESS_TOKEN, FIGMA_TOKEN',
+    '    il file indicato da   FIGMA_ENV_FILE',
+    '    credentials.env  e  .env.local  nella radice del progetto',
     '',
   ].join('\n'));
   process.exit(1);

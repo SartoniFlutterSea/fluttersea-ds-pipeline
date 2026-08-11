@@ -29,3 +29,5 @@ data/tokens/
 
 # Inventario: si rigenera con tools/list-files.mjs
 data/figma-inventory.json
+
+data/figma-teams-inventory.json
